@@ -10,7 +10,7 @@
   *  Open ruby_harvester.rb file with your favorite editor to set up the script
 
 
-  * Run `ruby ruby_harvester.rb`.
+  * Run `ruby ruby_harvester.rb` and enter the required parameters when prompted.
 
 
 If you still have any questions, remarks or would like to help me, please send me an email. I will do my utmost to answer you as soon as possible. 

@@ -28,13 +28,9 @@ require 'time'
 require 'json'
 
 
-PATH = 'popular'  # hypem.com section where you intend to start downloading ex. 'popular', 'latest', '<username>'...
-PAGES = 1         # Number of pages you want to scrape
 
-
-
-DEBUG = true     # Allows the script to create some debug files
-HYPEM_URL = "http://hypem.com/" #HYPEM_URL = "http://hypem.com/#{PATH}"
+DEBUG = false     # Allows the script to create some debug files
+HYPEM_URL = "http://hypem.com/" # Hypem base url
 
 
 
@@ -178,6 +174,8 @@ class HypeHarvester
     end
   end
 
+  # Solve redirect problems
+
    def resolve(url)
       
       url = URI.parse(URI.encode(url))
@@ -192,14 +190,13 @@ class HypeHarvester
     end
 end
 
-print "Type hypem.com section where you intend to start downloading (ex. 'popular', 'latest', '<username>') :\t"
+print "Type hypem.com section where you intend to start downloading (e.g. 'popular', 'latest', '<username>') :\t"
 path = gets
 
 print "Now please type the number of pages you want to scrape, i suggest to start with a tiny number (ex. 1-2) :\t"
 number = gets
 
-harvester = HypeHarvester.new(path.chomp!, number.chomp!)
-
+harvester = HypeHarvester.new(path.strip!, number.strip!)
 
 #harvester.start
 
